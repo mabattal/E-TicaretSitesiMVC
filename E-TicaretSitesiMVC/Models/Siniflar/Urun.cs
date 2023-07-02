@@ -28,6 +28,6 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         [StringLength(250)]
         public string UrunGorsel { get; set; }
         public Kategori Kategori { get; set; }
-        public SatisHareket SatisHareket { get; set; }
+        public ICollection<SatisHareket> SatisHarekets { get; set; }
     }
 }
