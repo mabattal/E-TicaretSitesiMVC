@@ -1,16 +1,30 @@
 ﻿@model E_TicaretSitesiMVC.Models.Siniflar.Kategori
 @{
-    ViewBag.Title = "KategoriEkle";
+    ViewBag.Title = Model.KategoriID > 0 ? "Kategori Düzenle" : "Yeni Kategori";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <br />
-<h2>Yeni Kategori</h2>
+<h2>@ViewBag.Title</h2>
 <br />
-<form class="form-group" method="post">
-    @Html.LabelFor(x => x.KategoriAd)
-    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
-    <br />
-    <button class="btn btn-info">Kaydet</button>
-</form>
 
+@*
+KategoriID 0 dan büyükse düzenleme değilse yeni kayıt yapılıyordur.
+Bunu kontrol ederek formAction'ımızı ve buton class'ımızı ona göre belirledik.
+*@
+
+@{
+    string formAction = Model.KategoriID > 0 ? "KategoriGuncelle" : "KategoriEkle";
+    string btnclass = Model.KategoriID > 0 ? "btn btn-warning" : "btn btn-info";
+}
+
+@using (Html.BeginForm(formAction, "Kategori", FormMethod.Post))
+{
+    <form class="form-group" method="post">
+        @Html.LabelFor(x => x.KategoriAd)
+        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.KategoriID)
+        <br />
+        <button class="@btnclass">Kaydet</button>
+    </form>
+}
