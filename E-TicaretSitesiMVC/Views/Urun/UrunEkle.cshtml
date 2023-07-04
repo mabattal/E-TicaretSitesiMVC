@@ -9,7 +9,7 @@
 
 @{
     string formAction = Model.UrunID > 0 ? "UrunGuncelle" : "UrunEkle";
-    string btnclass = Model.UrunID > 0 ? "btn btn-info" : "btn btn-success";
+    string text = Model.UrunID > 0 ? "Güncelle" : "Kaydet";
 }
 
 @using (Html.BeginForm(formAction, "Urun", FormMethod.Post))
@@ -42,6 +42,6 @@
         @Html.DropDownListFor(x => x.Durum, (List<SelectListItem>)ViewBag.Durumlar, new { @class = "form-control" })
         @*@Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })*@
         <br />
-        <button class="@btnclass">Kaydet</button>
+        <button class="btn btn-success">@text</button>
     </form>
 }

@@ -15,7 +15,7 @@
 
 @{
     string formAction = Model.KategoriID > 0 ? "KategoriGuncelle" : "KategoriEkle";
-    string btnclass = Model.KategoriID > 0 ? "btn btn-info" : "btn btn-success";
+    string text = Model.KategoriID > 0 ? "Güncelle" : "Kaydet";
 }
 
 @using (Html.BeginForm(formAction, "Kategori", FormMethod.Post))
@@ -25,6 +25,6 @@
         @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
         @Html.HiddenFor(x => x.KategoriID)
         <br />
-        <button class="@btnclass">Kaydet</button>
+        <button class="btn btn-success">@text</button>
     </form>
 }

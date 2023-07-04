@@ -10,7 +10,7 @@
 
 @{
     string formAction = Model.DepartmanID > 0 ? "DepartmanGuncelle" : "DepartmanEkle";
-    string btnclass = Model.DepartmanID > 0 ? "btn btn-info" : "btn btn-success";
+    string text = Model.DepartmanID > 0 ? "Güncelle" : "Kaydet";
 }
 
 @using (Html.BeginForm(formAction, "Departman", FormMethod.Post))
@@ -20,7 +20,7 @@
         @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
         @Html.HiddenFor(x => x.DepartmanID)
         <br />
-        <button class="@btnclass">Kaydet</button>
+        <button class="btn btn-success">@text</button>
     </form>
     
 }

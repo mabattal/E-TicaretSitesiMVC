@@ -46,5 +46,13 @@ namespace E_TicaretSitesiMVC.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DepartmanGuncelle(Departman d)
+        {
+            var dep = c.Departmans.Find(d.DepartmanID);
+            dep.DepartmanAd = d.DepartmanAd;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
