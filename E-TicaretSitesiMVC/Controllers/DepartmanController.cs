@@ -57,7 +57,22 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult DepartmanDetay(int id)
         {
-            return View();
+            //Seçilen departmana ait personelleri getiriyoruz
+            var degerler = c.Personels.Where(x => x.DepartmanID == id).ToList();
+
+            // Seçilen departmanın adını veritabanından alıyoruz
+            var departmanAdi = c.Departmans.FirstOrDefault(d => d.DepartmanID == id)?.DepartmanAd;
+            ViewBag.DepartmanAdi = departmanAdi;
+
+            return View(degerler);
+        }
+
+        public ActionResult DepartmanPersonelSatis(int id)
+        {
+            var degerler = c.SatisHarekets.Where(x => x.PersonelID == id).ToList();
+            var per = c.Personels.Where(x => x.PersonelID == id).Select(y => y.PersonelAd + " " + y.PersonelSoyad).FirstOrDefault();
+            ViewBag.dpers = per;
+            return View(degerler);
         }
     }
 }
