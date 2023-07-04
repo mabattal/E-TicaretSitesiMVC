@@ -17,5 +17,20 @@ namespace E_TicaretSitesiMVC.Controllers
 
             return View(degerler);
         }
+
+        [HttpGet]
+        public ActionResult DepartmanEkle()
+        {
+            Departman yeniDepartman = new Departman();
+            return View(yeniDepartman);
+        }
+
+        [HttpPost]
+        public ActionResult DepartmanEkle(Departman d)
+        {
+            c.Departmans.Add(d);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

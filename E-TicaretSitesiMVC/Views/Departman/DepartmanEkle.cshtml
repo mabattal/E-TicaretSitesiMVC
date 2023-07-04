@@ -1,0 +1,26 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.Departman
+@{
+    ViewBag.Title = Model.DepartmanID > 0 ? "Departman Düzenle" : "Yeni Departman";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+
+@{
+    string formAction = Model.DepartmanID > 0 ? "DepartmanGuncelle" : "DepartmanEkle";
+    string btnclass = Model.DepartmanID > 0 ? "btn btn-info" : "btn btn-success";
+}
+
+@using (Html.BeginForm(formAction, "Departman", FormMethod.Post))
+{
+    <form class="form-group" method="post">
+        <label>Departman Adı:</label>
+        @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.DepartmanID)
+        <br />
+        <button class="@btnclass">Kaydet</button>
+    </form>
+    
+}
