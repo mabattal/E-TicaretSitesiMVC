@@ -1,0 +1,28 @@
+﻿@using E_TicaretSitesiMVC.Models.Siniflar
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.DepartmanID</td>
+            <td>@d.DepartmanAd</td>
+            <td><a href="/Departman/DepartmanSil/@d.DepartmanID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Departman/DepartmanGetir/@d.DepartmanID" class="btn btn-primary">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanDetay/@d.DepartmanID" class="btn" style="background-color:gold">Detay</a></td>
+        </tr>
+    }
+</table>
+<a href="/Departman/DepartmanEkle" class="btn btn-success">Ekle</a>
+
