@@ -9,7 +9,7 @@
 
 @{
     string formAction = Model.UrunID > 0 ? "UrunGuncelle" : "UrunEkle";
-    string btnclass = Model.UrunID > 0 ? "btn btn-warning" : "btn btn-info";
+    string btnclass = Model.UrunID > 0 ? "btn btn-info" : "btn btn-success";
 }
 
 @using (Html.BeginForm(formAction, "Urun", FormMethod.Post))

@@ -22,7 +22,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         public short Stok { get; set; }
         public decimal AlisFiyat { get; set; }
         public decimal SatisFiyat { get; set; }
-        public bool Durum { get; set; }
+        public bool Durum { get; set; } = true;
 
         [Column(TypeName = "Varchar")]
         [StringLength(250)]

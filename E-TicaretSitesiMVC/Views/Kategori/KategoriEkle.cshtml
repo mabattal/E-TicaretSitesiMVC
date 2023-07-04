@@ -15,7 +15,7 @@
 
 @{
     string formAction = Model.KategoriID > 0 ? "KategoriGuncelle" : "KategoriEkle";
-    string btnclass = Model.KategoriID > 0 ? "btn btn-warning" : "btn btn-info";
+    string btnclass = Model.KategoriID > 0 ? "btn btn-info" : "btn btn-success";
 }
 
 @using (Html.BeginForm(formAction, "Kategori", FormMethod.Post))
