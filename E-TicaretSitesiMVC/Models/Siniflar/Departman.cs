@@ -15,6 +15,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string DepartmanAd { get; set; }
+        public bool Durum { get; set; } = true;
         public ICollection<Personel> Personels { get; set; }
     }
 }

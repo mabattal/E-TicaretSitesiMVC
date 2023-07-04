@@ -34,8 +34,8 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult KategoriSil(int id)
         {
-            var katid = c.Kategoris.Find(id);
-            c.Kategoris.Remove(katid);
+            var kat = c.Kategoris.Find(id);
+            c.Kategoris.Remove(kat);
             c.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -45,14 +45,14 @@ namespace E_TicaretSitesiMVC.Controllers
         //Böylelikle tek sayfada hem yeni kayıt hem de güncelleme yapmış olduk
         public ActionResult KategoriGetir(int id)
         {
-            var katid = c.Kategoris.Find(id);
-            return View("KategoriEkle",katid);
+            var kat = c.Kategoris.Find(id);
+            return View("KategoriEkle",kat);
         }
 
         public ActionResult KategoriGuncelle(Kategori k)
         {
-            var katid = c.Kategoris.Find(k.KategoriID);
-            katid.KategoriAd = k.KategoriAd;
+            var kat = c.Kategoris.Find(k.KategoriID);
+            kat.KategoriAd = k.KategoriAd;
             c.SaveChanges();
             return RedirectToAction("Index");
         }

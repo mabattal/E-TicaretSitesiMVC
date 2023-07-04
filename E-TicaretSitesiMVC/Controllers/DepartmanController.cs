@@ -13,7 +13,7 @@ namespace E_TicaretSitesiMVC.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var degerler = c.Departmans.ToList();
+            var degerler = c.Departmans.Where(x => x.Durum == true).ToList();
 
             return View(degerler);
         }
@@ -29,6 +29,20 @@ namespace E_TicaretSitesiMVC.Controllers
         public ActionResult DepartmanEkle(Departman d)
         {
             c.Departmans.Add(d);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DepartmanGetir(int id)
+        {
+            var dep = c.Departmans.Find(id);
+            return View("DepartmanEkle", dep);
+        }
+
+        public ActionResult DepartmanSil(int id)
+        {
+            var dep = c.Departmans.Find(id);
+            dep.Durum = false;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
