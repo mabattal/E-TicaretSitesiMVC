@@ -15,6 +15,7 @@
 @using (Html.BeginForm(formAction, "Urun", FormMethod.Post))
 {
     <form class="form-group" method="post">
+        @Html.HiddenFor(x => x.UrunID)
         <label for="UrunAd">Ürün Adı:</label>
         @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
         <br />

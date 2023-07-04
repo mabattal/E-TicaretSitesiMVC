@@ -34,8 +34,29 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult UrunSil(int id)
         {
-            var urunId = c.Uruns.Find(id);
-            urunId.Durum = false;
+            var urun = c.Uruns.Find(id);
+            urun.Durum = false;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UrunGetir(int id)
+        {
+            var urun = c.Uruns.Find(id);
+            return View("UrunEkle", urun);
+        }
+
+        public ActionResult UrunGuncelle(Urun u)
+        {
+            var urun = c.Uruns.Find(u.UrunID);
+            urun.UrunAd = u.UrunAd;
+            urun.Marka = u.Marka;
+            urun.Stok = u.Stok;
+            urun.AlisFiyat = u.AlisFiyat;
+            urun.SatisFiyat = u.SatisFiyat;
+            urun.KategoriID = u.KategoriID;
+            urun.UrunGorsel = u.UrunGorsel;
+            urun.Durum = u.Durum;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
