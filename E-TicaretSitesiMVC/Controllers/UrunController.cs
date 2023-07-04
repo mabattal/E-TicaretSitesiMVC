@@ -16,5 +16,20 @@ namespace E_TicaretSitesiMVC.Controllers
             var urunler = c.Uruns.ToList();
             return View(urunler);
         }
+
+        [HttpGet]
+        public ActionResult UrunEkle()
+        {
+            Urun yeniUrun = new Urun();
+            return View(yeniUrun);
+        }
+
+        [HttpPost]
+        public ActionResult UrunEkle(Urun u)
+        {
+            c.Uruns.Add(u);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

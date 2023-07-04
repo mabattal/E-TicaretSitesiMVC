@@ -1,0 +1,44 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.Urun
+@{
+    ViewBag.Title = Model.UrunID > 0 ? "Ürün Düzenle" : "Yeni Ürün";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+
+@{
+    string formAction = Model.UrunID > 0 ? "UrunGuncelle" : "UrunEkle";
+    string btnclass = Model.UrunID > 0 ? "btn btn-warning" : "btn btn-info";
+}
+
+@using (Html.BeginForm(formAction, "Urun", FormMethod.Post))
+{
+    <form class="form-group" method="post">
+        <label for="UrunAd">Ürün Adı:</label>
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+        <br />
+        <label for="Marka">Marka:</label>
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+        <br />
+        <label for="Stok">Stok:</label>
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+        <br />
+        <label for="AlisFiyat">Alış Fiyatı:</label>
+        @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control" })
+        <br />
+        <label for="SatisFiyat">Satış Fiyatı:</label>
+        @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
+        <br />
+        <label for="Kategori">Kategori:</label>
+        @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+        <br />
+        <label for="UrunGorsel">Görsel:</label>
+        @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
+        <br />
+        <label for="Durum">Durum:</label>
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+        <br />
+        <button class="@btnclass">Kaydet</button>
+    </form>
+}
