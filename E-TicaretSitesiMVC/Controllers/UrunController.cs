@@ -31,5 +31,13 @@ namespace E_TicaretSitesiMVC.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult UrunSil(int id)
+        {
+            var urunId = c.Uruns.Find(id);
+            urunId.Durum = false;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
