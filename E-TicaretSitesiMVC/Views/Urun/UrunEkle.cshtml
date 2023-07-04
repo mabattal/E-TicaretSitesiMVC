@@ -32,13 +32,15 @@
         @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
         <br />
         <label for="Kategori">Kategori:</label>
-        @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.ktg, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })*@
         <br />
         <label for="UrunGorsel">Görsel:</label>
         @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
         <br />
         <label for="Durum">Durum:</label>
-        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.Durum, (List<SelectListItem>)ViewBag.Durumlar, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })*@
         <br />
         <button class="@btnclass">Kaydet</button>
     </form>

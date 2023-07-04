@@ -21,6 +21,25 @@ namespace E_TicaretSitesiMVC.Controllers
         public ActionResult UrunEkle()
         {
             Urun yeniUrun = new Urun();
+
+            // Dropdown için seçenekleri oluşturuyoruz
+            List<SelectListItem> kategoriler = (from x in c.Kategoris.ToList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.KategoriAd,
+                                                    Value = x.KategoriID.ToString()
+                                                }).ToList();
+            // ViewBag üzerinden seçenekleri View'a gönderiyoruz
+            ViewBag.ktg = kategoriler;
+                        
+            List<SelectListItem> durumlar = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Aktif", Value = "true" },
+                new SelectListItem { Text = "Pasif", Value = "false" }
+            };
+            
+            ViewBag.Durumlar = durumlar;
+
             return View(yeniUrun);
         }
 
@@ -42,6 +61,24 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult UrunGetir(int id)
         {
+            // Dropdown için seçenekleri oluşturuyoruz
+            List<SelectListItem> kategoriler = (from x in c.Kategoris.ToList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.KategoriAd,
+                                                    Value = x.KategoriID.ToString()
+                                                }).ToList();
+            // ViewBag üzerinden seçenekleri View'a gönderiyoruz
+            ViewBag.ktg = kategoriler;
+
+            List<SelectListItem> durumlar = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Aktif", Value = "true" },
+                new SelectListItem { Text = "Pasif", Value = "false" }
+            };
+
+            ViewBag.Durumlar = durumlar;
+
             var urun = c.Uruns.Find(id);
             return View("UrunEkle", urun);
         }
