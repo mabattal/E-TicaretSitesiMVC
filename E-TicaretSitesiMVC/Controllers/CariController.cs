@@ -13,7 +13,7 @@ namespace E_TicaretSitesiMVC.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var cari = c.Caris.ToList();
+            var cari = c.Caris.Where(x => x.Durum == true).ToList();
 
             return View(cari);
         }
@@ -29,6 +29,14 @@ namespace E_TicaretSitesiMVC.Controllers
         public ActionResult CariEkle(Cari p)
         {
             c.Caris.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult CariSil(int id)
+        {
+            var car = c.Caris.Find(id);
+            car.Durum = false;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
