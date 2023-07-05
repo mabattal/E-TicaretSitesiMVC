@@ -17,5 +17,20 @@ namespace E_TicaretSitesiMVC.Controllers
 
             return View(cari);
         }
+
+        public ActionResult CariEkle()
+        {
+            Cari c = new Cari();
+
+            return View(c);
+        }
+
+        [HttpPost]
+        public ActionResult CariEkle(Cari p)
+        {
+            c.Caris.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

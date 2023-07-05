@@ -1,0 +1,32 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.Cari
+@{
+    ViewBag.Title = Model.CariID > 0 ? "Cari Düzenle" : "Yeni Cari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+
+@{ 
+    string formAction = Model.CariID > 0 ? "CariGuncelle" : "CariEkle";
+    string text = Model.CariID > 0 ? "Güncelle" : "Kaydet";
+}
+
+@using(Html.BeginForm(formAction, "Cari", FormMethod.Post))
+            {
+                <form class="form-group" method="post">
+                    <label>Ad:</label>
+                    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+                    <br />
+                    <label>Soyad:</label>
+                    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+                    <br />
+                    <label>Şehir:</label>
+                    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+                    <br />
+                    <label>Mail:</label>
+                    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-success">@text</button>
+                </form>
+            }
