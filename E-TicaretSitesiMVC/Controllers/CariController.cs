@@ -13,7 +13,7 @@ namespace E_TicaretSitesiMVC.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var cari = c.Caris.Where(x => x.Durum == true).ToList();
+            var cari = c.Caris.Where(x => x.Sil == false).ToList();
 
             return View(cari);
         }
@@ -22,6 +22,12 @@ namespace E_TicaretSitesiMVC.Controllers
         {
             Cari c = new Cari();
 
+            List<SelectListItem> durumlar = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "Aktif", Value="True"},
+                new SelectListItem{Text = "Pasif", Value="False"}
+            };
+            ViewBag.Durum = durumlar;
             return View(c);
         }
 
@@ -36,7 +42,33 @@ namespace E_TicaretSitesiMVC.Controllers
         public ActionResult CariSil(int id)
         {
             var car = c.Caris.Find(id);
-            car.Durum = false;
+            car.Sil = true;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult CariGetir(int id)
+        {
+            var cr = c.Caris.Find(id);
+
+            List<SelectListItem> durumlar = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "Aktif", Value="True"},
+                new SelectListItem{Text = "Pasif", Value="False"}
+            };
+            ViewBag.Durum = durumlar;
+
+            return View("CariEkle", cr);
+        }
+
+        public ActionResult CariGuncelle(Cari cid)
+        {
+            var deger = c.Caris.Find(cid.CariID);
+            deger.CariAd = cid.CariAd;
+            deger.CariSoyad = cid.CariSoyad;
+            deger.CariSehir = cid.CariSehir;
+            deger.CariMail = cid.CariMail;
+            deger.Durum = cid.Durum;
             c.SaveChanges();
             return RedirectToAction("Index");
         }

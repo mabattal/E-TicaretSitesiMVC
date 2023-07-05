@@ -12,6 +12,7 @@
         <th>Soyad</th>
         <th>Şehir</th>
         <th>Mail</th>
+        <th>Durum</th>
         <th>Sil</th>
         <th>Güncelle</th>
         <th>Detaylar</th>
@@ -24,6 +25,12 @@
             <td>@x.CariSoyad</td>
             <td>@x.CariSehir</td>
             <td>@x.CariMail</td>
+            <td>
+                @if (x.Durum)
+                {<span class="text-success">Aktif</span>}
+                else
+                {<span class="text-danger">Pasif</span>}
+            </td>
             <td><a href="/Cari/CariSil/@x.CariID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Cari/CariGetir/@x.CariID" class="btn btn-primary">Güncelle</a></td>
             <td><a href="/Cari/CariDetay/@x.CariID" class="btn" style="background-color:gold">Satış Geçmişi</a></td>

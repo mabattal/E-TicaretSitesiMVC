@@ -15,6 +15,7 @@
 @using(Html.BeginForm(formAction, "Cari", FormMethod.Post))
             {
                 <form class="form-group" method="post">
+                    @Html.HiddenFor(x => x.CariID)
                     <label>Ad:</label>
                     @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
                     <br />
@@ -26,6 +27,9 @@
                     <br />
                     <label>Mail:</label>
                     @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+                    <br />
+                    <label>Durum:</label>
+                    @Html.DropDownListFor(x => x.Durum, (List<SelectListItem>)ViewBag.Durum, new { @class = "form-control" })
                     <br />
                     <button class="btn btn-success">@text</button>
                 </form>
