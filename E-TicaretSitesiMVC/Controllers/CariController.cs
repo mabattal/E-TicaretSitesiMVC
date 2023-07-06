@@ -82,5 +82,13 @@ namespace E_TicaretSitesiMVC.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult CariSiparisDetay (int id)
+        {
+            var degerler = context.SatisHarekets.Where(x => x.CariID == id).ToList();
+            var cr = context.Caris.Where(x => x.CariID == id).Select(y => y.CariAd + " " + y.CariSoyad).FirstOrDefault();
+            ViewBag.cari = cr;
+            return View(degerler);
+        }
     }
 }

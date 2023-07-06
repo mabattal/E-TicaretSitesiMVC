@@ -294,6 +294,7 @@
     <Content Include="Views\Departman\DepartmanPersonelSatis.cshtml" />
     <Content Include="Views\Cari\Index.cshtml" />
     <Content Include="Views\Cari\CariEkle.cshtml" />
+    <Content Include="Views\Cari\CariSiparisDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
