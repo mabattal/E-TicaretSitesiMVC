@@ -13,11 +13,12 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         public int CariID { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
+        [StringLength(30, ErrorMessage ="30 karakterden fazla olamaz!")]
         public string CariAd { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
+        [Required(ErrorMessage ="Bu alan boş geçilemez!")]
         public string CariSoyad { get; set; }
 
         [Column(TypeName = "Varchar")]

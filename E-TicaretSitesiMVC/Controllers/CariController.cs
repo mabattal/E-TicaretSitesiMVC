@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,6 +35,10 @@ namespace E_TicaretSitesiMVC.Controllers
         [HttpPost]
         public ActionResult CariEkle(Cari cari)
         {
+            if (!ModelState.IsValid)
+            {
+                return CariEkle();
+            }
             context.Caris.Add(cari);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -63,6 +68,11 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult CariGuncelle(Cari cari)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return CariGetir(cari.CariID);
+            }
             var deger = context.Caris.Find(cari.CariID);
             deger.CariAd = cari.CariAd;
             deger.CariSoyad = cari.CariSoyad;
