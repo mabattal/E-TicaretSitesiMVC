@@ -1,0 +1,33 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = Model.SatisID > 0 ? "Satış Düzenle" : "Yeni Satış";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+
+@{
+    string formAction = Model.SatisID > 0 ? "SatisGuncelle" : "SatisEkle";
+    string text = Model.SatisID > 0 ? "Satış Güncelle" : "Satış Yap";
+}
+
+@using (Html.BeginForm(formAction, "Satis", FormMethod.Post))
+{
+    <form class="form-group" method="post">
+        @Html.HiddenFor(x => x.SatisID)
+        <label>Ürün:</label>
+        @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.Urunler, new { @class = "form-control" })
+        <br />
+        @Html.Label("Cari:")
+        @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.Cariler, new { @class = "form-control" })
+        <br />
+        @Html.Label("Personel:")
+        @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.Personeller, new { @class = "form-control" })
+        <br />
+        @Html.Label("Adet:")
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">@text</button>
+    </form>
+}
