@@ -14,6 +14,7 @@
         <th>Görsel</th>
         <th>Departman</th>
         <th>Durum</th>
+        <th>Sil</th>
         <th>Güncelle</th>
         <th>Satışlar</th>
     </tr>
@@ -31,8 +32,9 @@
                 else
                 {<span class="text-danger">Pasif</span>}
             </td>
-            <td><a href="/Cari/CariGetir/@p.PersonelID" class="btn btn-primary">Güncelle</a></td>
-            <td><a href="/Cari/CariSiparisDetay/@p.PersonelID" class="btn" style="background-color:gold">Satışlar</a></td>
+            <td><a href="/Personel/PersonelSil/@p.PersonelID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Personel/PersonelGetir/@p.PersonelID" class="btn btn-primary">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@p.PersonelID" class="btn" style="background-color:gold">Satışlar</a></td>
         </tr>
     }
 </table>
