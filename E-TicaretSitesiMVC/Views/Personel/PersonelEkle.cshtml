@@ -1,0 +1,36 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.Personel
+@{
+    ViewBag.Title = Model.PersonelID > 0 ? "Personel Düzenle" : "Yeni Personel";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+
+@{
+    string formAction = Model.PersonelID > 0 ? "PersonelGuncelle" : "PersonelEkle";
+    string text = Model.PersonelID > 0 ? "Güncelle" : "Kaydet";
+}
+
+@using (Html.BeginForm(formAction, "Personel", FormMethod.Post))
+{
+    <form class="form-group" method="post">
+        @Html.HiddenFor(x => x.PersonelID)
+        <label>Adı:</label>
+        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+        <br />
+        <label>Soyadı:</label>
+        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+        <br />
+        <label>Görsel:</label>
+        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+        <br />
+        <label>Departman:</label>
+        @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.Departmanlar, new { @class = "form-control" })
+        <br />
+        <label>Durum:</label>
+        @Html.DropDownListFor(x => x.Durum, (List<SelectListItem>)ViewBag.Durumlar, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">@text</button>
+    </form>
+}
