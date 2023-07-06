@@ -10,20 +10,20 @@ namespace E_TicaretSitesiMVC.Controllers
     public class UrunController : Controller
     {
         // GET: Urun
-        Context c = new Context();
+        Context context = new Context();
         public ActionResult Index()
         {
-            var urunler = c.Uruns.Where(x => x.Durum == true).ToList();
+            var urunler = context.Uruns.Where(x => x.Sil == false).ToList();
             return View(urunler);
         }
 
         [HttpGet]
         public ActionResult UrunEkle()
         {
-            Urun yeniUrun = new Urun();
+            Urun urun = new Urun();
 
             // Dropdown için seçenekleri oluşturuyoruz
-            List<SelectListItem> kategoriler = (from x in c.Kategoris.ToList()
+            List<SelectListItem> kategoriler = (from x in context.Kategoris.ToList()
                                                 select new SelectListItem
                                                 {
                                                     Text = x.KategoriAd,
@@ -40,29 +40,31 @@ namespace E_TicaretSitesiMVC.Controllers
             
             ViewBag.Durumlar = durumlar;
 
-            return View(yeniUrun);
+            return View(urun);
         }
 
         [HttpPost]
-        public ActionResult UrunEkle(Urun u)
+        public ActionResult UrunEkle(Urun urun)
         {
-            c.Uruns.Add(u);
-            c.SaveChanges();
+            context.Uruns.Add(urun);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult UrunSil(int id)
         {
-            var urun = c.Uruns.Find(id);
-            urun.Durum = false;
-            c.SaveChanges();
+            var deger = context.Uruns.Find(id);
+            deger.Sil = true;
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult UrunGetir(int id)
         {
+            var deger = context.Uruns.Find(id);
+
             // Dropdown için seçenekleri oluşturuyoruz
-            List<SelectListItem> kategoriler = (from x in c.Kategoris.ToList()
+            List<SelectListItem> kategoriler = (from x in context.Kategoris.ToList()
                                                 select new SelectListItem
                                                 {
                                                     Text = x.KategoriAd,
@@ -76,25 +78,23 @@ namespace E_TicaretSitesiMVC.Controllers
                 new SelectListItem { Text = "Aktif", Value = "true" },
                 new SelectListItem { Text = "Pasif", Value = "false" }
             };
-
             ViewBag.Durumlar = durumlar;
-
-            var urun = c.Uruns.Find(id);
-            return View("UrunEkle", urun);
+                        
+            return View("UrunEkle", deger);
         }
 
-        public ActionResult UrunGuncelle(Urun u)
+        public ActionResult UrunGuncelle(Urun urun)
         {
-            var urun = c.Uruns.Find(u.UrunID);
-            urun.UrunAd = u.UrunAd;
-            urun.Marka = u.Marka;
-            urun.Stok = u.Stok;
-            urun.AlisFiyat = u.AlisFiyat;
-            urun.SatisFiyat = u.SatisFiyat;
-            urun.KategoriID = u.KategoriID;
-            urun.UrunGorsel = u.UrunGorsel;
-            urun.Durum = u.Durum;
-            c.SaveChanges();
+            var deger = context.Uruns.Find(urun.UrunID);
+            deger.UrunAd = urun.UrunAd;
+            deger.Marka = urun.Marka;
+            deger.Stok = urun.Stok;
+            deger.AlisFiyat = urun.AlisFiyat;
+            deger.SatisFiyat = urun.SatisFiyat;
+            deger.KategoriID = urun.KategoriID;
+            deger.UrunGorsel = urun.UrunGorsel;
+            deger.Durum = urun.Durum;
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

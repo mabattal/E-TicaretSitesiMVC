@@ -10,17 +10,17 @@ namespace E_TicaretSitesiMVC.Controllers
     public class CariController : Controller
     {
         // GET: Cari
-        Context c = new Context();
+        Context context = new Context();
         public ActionResult Index()
         {
-            var cari = c.Caris.Where(x => x.Sil == false).ToList();
+            var cari = context.Caris.Where(x => x.Sil == false).ToList();
 
             return View(cari);
         }
 
         public ActionResult CariEkle()
         {
-            Cari c = new Cari();
+            Cari cari = new Cari();
 
             List<SelectListItem> durumlar = new List<SelectListItem>
             {
@@ -28,28 +28,28 @@ namespace E_TicaretSitesiMVC.Controllers
                 new SelectListItem{Text = "Pasif", Value="False"}
             };
             ViewBag.Durum = durumlar;
-            return View(c);
+            return View(cari);
         }
 
         [HttpPost]
-        public ActionResult CariEkle(Cari p)
+        public ActionResult CariEkle(Cari cari)
         {
-            c.Caris.Add(p);
-            c.SaveChanges();
+            context.Caris.Add(cari);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult CariSil(int id)
         {
-            var car = c.Caris.Find(id);
+            var car = context.Caris.Find(id);
             car.Sil = true;
-            c.SaveChanges();
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult CariGetir(int id)
         {
-            var cr = c.Caris.Find(id);
+            var cr = context.Caris.Find(id);
 
             List<SelectListItem> durumlar = new List<SelectListItem>
             {
@@ -61,15 +61,15 @@ namespace E_TicaretSitesiMVC.Controllers
             return View("CariEkle", cr);
         }
 
-        public ActionResult CariGuncelle(Cari cid)
+        public ActionResult CariGuncelle(Cari cari)
         {
-            var deger = c.Caris.Find(cid.CariID);
-            deger.CariAd = cid.CariAd;
-            deger.CariSoyad = cid.CariSoyad;
-            deger.CariSehir = cid.CariSehir;
-            deger.CariMail = cid.CariMail;
-            deger.Durum = cid.Durum;
-            c.SaveChanges();
+            var deger = context.Caris.Find(cari.CariID);
+            deger.CariAd = cari.CariAd;
+            deger.CariSoyad = cari.CariSoyad;
+            deger.CariSehir = cari.CariSehir;
+            deger.CariMail = cari.CariMail;
+            deger.Durum = cari.Durum;
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

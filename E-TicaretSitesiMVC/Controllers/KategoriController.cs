@@ -10,33 +10,33 @@ namespace E_TicaretSitesiMVC.Controllers
     public class KategoriController : Controller
     {
         // GET: Kategori
-        Context c = new Context();
+        Context context = new Context();
         public ActionResult Index()
         {
-            var degerler = c.Kategoris.ToList();
+            var degerler = context.Kategoris.ToList();
             return View(degerler);
         }
 
         //[HttpGet]
         public ActionResult KategoriEkle()
         {
-            Kategori yeniKategori = new Kategori();
-            return View(yeniKategori);
+            Kategori kategori = new Kategori();
+            return View(kategori);
         }
 
         [HttpPost]
-        public ActionResult KategoriEkle(Kategori k)
+        public ActionResult KategoriEkle(Kategori kategori)
         {
-            c.Kategoris.Add(k);
-            c.SaveChanges();
+            context.Kategoris.Add(kategori);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult KategoriSil(int id)
         {
-            var kat = c.Kategoris.Find(id);
-            c.Kategoris.Remove(kat);
-            c.SaveChanges();
+            var kat = context.Kategoris.Find(id);
+            context.Kategoris.Remove(kat);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -45,15 +45,15 @@ namespace E_TicaretSitesiMVC.Controllers
         //Böylelikle tek sayfada hem yeni kayıt hem de güncelleme yapmış olduk
         public ActionResult KategoriGetir(int id)
         {
-            var kat = c.Kategoris.Find(id);
+            var kat = context.Kategoris.Find(id);
             return View("KategoriEkle",kat);
         }
 
-        public ActionResult KategoriGuncelle(Kategori k)
+        public ActionResult KategoriGuncelle(Kategori kategori)
         {
-            var kat = c.Kategoris.Find(k.KategoriID);
-            kat.KategoriAd = k.KategoriAd;
-            c.SaveChanges();
+            var kat = context.Kategoris.Find(kategori.KategoriID);
+            kat.KategoriAd = kategori.KategoriAd;
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

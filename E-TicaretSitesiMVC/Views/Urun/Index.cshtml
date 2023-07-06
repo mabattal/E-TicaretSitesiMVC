@@ -15,6 +15,7 @@
         <th>Satış Fiyatı</th>
         <th>Kategori</th>
         <th>Görsel</th>
+        <th>Durum</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -29,6 +30,12 @@
             <td>@u.SatisFiyat</td>
             <td>@u.Kategori.KategoriAd</td>
             <td>@u.UrunGorsel</td>
+            <td>
+                @if (u.Durum)
+                {<span class="text-success">Aktif</span>}
+                else
+                {<span class="text-danger">Pasif</span>}
+            </td>
             <td><a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-primary">Güncelle</a></td>
         </tr>

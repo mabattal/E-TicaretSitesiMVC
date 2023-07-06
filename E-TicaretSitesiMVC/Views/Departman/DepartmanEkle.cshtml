@@ -20,6 +20,9 @@
         @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
         @Html.HiddenFor(x => x.DepartmanID)
         <br />
+        <label>Durum:</label>
+        @Html.DropDownListFor(x => x.Durum, (List<SelectListItem>)ViewBag.Durum, new { @class = "form-control" })
+        <br />
         <button class="btn btn-success">@text</button>
     </form>
     

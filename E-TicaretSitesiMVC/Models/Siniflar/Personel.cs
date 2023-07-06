@@ -26,5 +26,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         public ICollection<SatisHareket> SatisHarekets { get; set; }
         public int DepartmanID { get; set; }
         public virtual Departman Departman { get; set; }
+        public bool Sil { get; set; } = false;
+        public bool Durum { get; set; }
     }
 }

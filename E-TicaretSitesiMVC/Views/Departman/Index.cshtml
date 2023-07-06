@@ -9,6 +9,7 @@
     <tr>
         <th>ID</th>
         <th>Departman Adı</th>
+        <th>Durum</th>
         <th>Sil</th>
         <th>Güncelle</th>
         <th>Detay</th>
@@ -18,6 +19,12 @@
         <tr>
             <td>@d.DepartmanID</td>
             <td>@d.DepartmanAd</td>
+            <td>
+                @if (d.Durum)
+                {<span class="text-success">Aktif</span>}
+                else
+                {<span class="text-danger">Pasif</span>}
+            </td>
             <td><a href="/Departman/DepartmanSil/@d.DepartmanID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Departman/DepartmanGetir/@d.DepartmanID" class="btn btn-primary">Güncelle</a></td>
             <td><a href="/Departman/DepartmanDetay/@d.DepartmanID" class="btn" style="background-color:gold">Detay</a></td>
