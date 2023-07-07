@@ -63,6 +63,7 @@ namespace E_TicaretSitesiMVC.Controllers
         [HttpPost]
         public ActionResult SatisEkle(SatisHareket satisHareket)
         {
+            //toplamtutar'ı hesaplayabilmek için satın alınan ürünün satışFiyatı gerekiyor
             //satisHareket'ten gelen UrunID ile ürünü var tipinde bir x değişkenine aldım
             var x = context.Uruns.Find(satisHareket.UrunID);
             satisHareket.Fiyat = x.SatisFiyat;                                  
@@ -113,6 +114,22 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.Urunler = list4;
 
             return View("SatisEkle",deger);
+        }
+
+        public ActionResult SatisGuncelle(SatisHareket satisHareket)
+        {
+            var deger = context.SatisHarekets.Find(satisHareket.SatisID);
+            var x = context.Uruns.Find(satisHareket.UrunID);
+            deger.UrunID = satisHareket.UrunID;
+            deger.CariID = satisHareket.CariID;
+            deger.Adet = satisHareket.Adet;
+            deger.Fiyat = x.SatisFiyat;
+            deger.PersonelID = satisHareket.PersonelID;
+            deger.Tarih = DateTime.Parse(DateTime.Now.ToString());
+            deger.ToplamTutar = deger.Fiyat * deger.Adet;
+            context.SaveChanges();
+
+            return RedirectToAction("Index");            
         }
     }
 }
