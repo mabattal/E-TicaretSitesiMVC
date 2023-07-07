@@ -131,5 +131,11 @@ namespace E_TicaretSitesiMVC.Controllers
 
             return RedirectToAction("Index");            
         }
+
+        public ActionResult SatisDetay(int id)
+        {
+            var deger = context.SatisHarekets.Where(x => x.SatisID == id).ToList();
+            return View(deger);
+        }
     }
 }
