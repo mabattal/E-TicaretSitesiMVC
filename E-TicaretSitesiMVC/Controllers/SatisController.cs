@@ -72,5 +72,47 @@ namespace E_TicaretSitesiMVC.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult SatisGetir(int id)
+        {
+            var deger = context.SatisHarekets.Find(id);
+
+            //Ürünler dropdown için ürünler listesi
+            List<SelectListItem> list1 = (from x in context.Uruns.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.UrunAd,
+                                              Value = x.UrunID.ToString()
+                                          }).ToList();
+            ViewBag.Urunler = list1;
+
+            //Cariler dropdown için cariler listesi
+            List<SelectListItem> list2 = (from x in context.Caris.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.CariAd + " " + x.CariSoyad,
+                                              Value = x.CariID.ToString()
+                                          }).ToList();
+            ViewBag.Cariler = list2;
+
+            //Personeller dropdown için personeller listesi
+            List<SelectListItem> list3 = (from x in context.Personels.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.PersonelAd + " " + x.PersonelSoyad,
+                                              Value = x.PersonelID.ToString()
+                                          }).ToList();
+            ViewBag.Personeller = list3;
+
+            List<SelectListItem> list4 = (from x in context.Uruns.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.UrunAd,
+                                              Value = x.UrunID.ToString()
+                                          }).ToList();
+            ViewBag.Urunler = list4;
+
+            return View("SatisEkle",deger);
+        }
     }
 }
