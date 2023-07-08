@@ -33,5 +33,24 @@ namespace E_TicaretSitesiMVC.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult FaturaGetir(int id)
+        {
+            var deger = context.Faturas.Find(id);
+            return View("FaturaEkle",deger);
+        }
+
+        public ActionResult FaturaGuncelle(Fatura fatura)
+        {
+            var deger = context.Faturas.Find(fatura.FaturaID);
+            deger.FaturaSeriNo = fatura.FaturaSeriNo;
+            deger.FaturaSiraNo = fatura.FaturaSiraNo;
+            deger.VergiDairesi = fatura.VergiDairesi;
+            deger.Tarih = DateTime.Now;
+            deger.TeslimEden = fatura.TeslimEden;
+            deger.TeslimAlan = fatura.TeslimAlan;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
