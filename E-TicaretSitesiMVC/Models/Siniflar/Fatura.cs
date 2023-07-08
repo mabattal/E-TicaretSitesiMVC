@@ -24,7 +24,6 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
         public string VergiDairesi { get; set; }
-        public DateTime Saat { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
@@ -33,6 +32,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string TeslimAlan { get; set; }
+        public decimal Toplam { get; set; }
         public ICollection<FaturaDetay> FaturaDetays { get; set; }
     }
 }
