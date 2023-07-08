@@ -16,5 +16,22 @@ namespace E_TicaretSitesiMVC.Controllers
             var liste = context.Faturas.ToList();
             return View(liste);
         }
+
+        [HttpGet]
+        public ActionResult FaturaEkle()
+        {
+            Fatura fatura = new Fatura();
+
+            return View(fatura);
+        }
+
+        [HttpPost]
+        public ActionResult FaturaEkle(Fatura fatura)
+        {
+            context.Faturas.Add(fatura);
+            fatura.Tarih = DateTime.Now;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

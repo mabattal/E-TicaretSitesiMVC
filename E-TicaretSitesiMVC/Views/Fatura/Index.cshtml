@@ -13,9 +13,9 @@
         <th>Vergi Dairesi</th>
         <th>Tarih</th>
         <th>Saat</th>
-        <th>Toplam</th>
         <th>Teslim Eden</th>
         <th>Teslim Alan</th>
+        <th>Toplam</th>
         <th>Güncelle</th>
         <th>Detay</th>
     </tr>
@@ -23,18 +23,18 @@
     {
         <tr>
             <td>@f.FaturaID</td>
-            <td>@f.FaturaSeriNo</td>            
-            <td>@f.FaturaSiraNo</td>            
-            <td>@f.VergiDairesi</td>            
-            <td>@f.Tarih.ToShortDateString()</td>            
-            <td>@f.Tarih.TimeOfDay.</td>            
-            <td>@f.Toplam</td>            
-            <td>@f.TeslimEden</td>            
+            <td>@f.FaturaSeriNo</td>
+            <td>@f.FaturaSiraNo</td>
+            <td>@f.VergiDairesi</td>
+            <td>@f.Tarih.ToShortDateString()</td>
+            <td>@f.Tarih.ToLongTimeString()</td>
+            <td>@f.TeslimEden</td>
             <td>@f.TeslimAlan</td>
+            <td>@f.Toplam</td>
             <td><a href="/Fatura/FaturaGetir/@f.FaturaID" class="btn btn-primary">Güncelle</a></td>
             <td><a href="/Fatura/FaturaDetay/@f.FaturaID" class="btn" style="background-color:gold">Detay</a></td>
         </tr>
     }
 </table>
-<a href="/Departman/DepartmanEkle" class="btn btn-info">Ekle</a>
+<a href="/Fatura/FaturaEkle" class="btn btn-info">Yeni Fatura Oluştur</a>
 
