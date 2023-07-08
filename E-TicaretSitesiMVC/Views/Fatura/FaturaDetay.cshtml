@@ -1,0 +1,34 @@
+﻿@using E_TicaretSitesiMVC.Models.Siniflar
+@model List<FaturaDetay>
+@{
+    ViewBag.Title = "Fatura Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Detay</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Fatura ID: @ViewBag.FaturaID</li>
+</ol>
+
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Tutar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.FaturaDetayID</td>
+            <td>@x.Aciklama</td>
+            <td>@x.Miktar</td>
+            <td>@x.BirimFiyat</td>
+            <td>@x.Tutar</td>
+        </tr>
+    }
+
+</table>
+<a href="#" class="btn btn-info">Ürün Ekle</a>

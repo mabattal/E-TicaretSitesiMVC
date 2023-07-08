@@ -542,6 +542,7 @@
     <Content Include="Views\Urun\UrunListele.cshtml" />
     <Content Include="Views\Fatura\Index.cshtml" />
     <Content Include="Views\Fatura\FaturaEkle.cshtml" />
+    <Content Include="Views\Fatura\FaturaDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

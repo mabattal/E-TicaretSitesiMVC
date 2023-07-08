@@ -52,5 +52,12 @@ namespace E_TicaretSitesiMVC.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult FaturaDetay(int id)
+        {
+            var kalem = context.FaturaDetays.Where(x => x.FaturaID == id).ToList();
+            ViewBag.FaturaID = id;
+            return View(kalem);
+        }
     }
 }
