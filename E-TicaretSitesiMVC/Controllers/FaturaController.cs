@@ -59,5 +59,20 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.FaturaID = id;
             return View(kalem);
         }
+
+        [HttpGet]
+        public ActionResult FaturaDetayEkle()
+        {
+            FaturaDetay faturaDetay = new FaturaDetay();
+
+            return View(faturaDetay);
+        }
+
+        public ActionResult FaturaDetayEkle(FaturaDetay faturaDetay)
+        {
+            context.FaturaDetays.Add(faturaDetay);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
