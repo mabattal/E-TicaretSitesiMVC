@@ -97,5 +97,11 @@ namespace E_TicaretSitesiMVC.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult UrunListele()
+        {
+            var degerler = context.Uruns.ToList();
+            return View(degerler);
+        }
     }
 }

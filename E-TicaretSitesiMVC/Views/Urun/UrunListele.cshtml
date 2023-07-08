@@ -1,15 +1,15 @@
 ﻿@using E_TicaretSitesiMVC.Models.Siniflar
-@model List<SatisHareket>
+@model List<Urun>
+
 @{
     Layout = null;
 }
 <br />
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Satış Detay Yazdır</title>
+    <title>Bootstrap 4 Responsive Datatable and Export to PDF, CSV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
@@ -19,28 +19,28 @@
     <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
             <tr>
-                <th>Satış ID</th>
-                <th>Tarih</th>
-                <th>Ürün</th>
-                <th>Cari</th>
-                <th>Personel</th>
-                <th>Fiyat</th>
-                <th>Adet</th>
-                <th>Toplam</th>
+                <th>Ürün Id</th>
+                <th>Adı</th>
+                <th>Marka</th>
+                <th>Stok</th>
+                <th>Alış Fiyat</th>
+                <th>Satış Fiyat</th>
+                <th>Durum</th>
+                <th>Kategori</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var x in Model)
             {
                 <tr>
-                    <td>@x.SatisID</td>
-                    <td>@x.Tarih</td>
-                    <td>@x.Urun.UrunAd</td>
-                    <td>@x.Cari.CariAd @x.Cari.CariSoyad</td>
-                    <td>@x.Personel.PersonelAd @x.Personel.PersonelSoyad</td>
-                    <td>@x.Fiyat</td>
-                    <td>@x.Adet</td>
-                    <td>@x.ToplamTutar</td>
+                    <td>@x.UrunID</td>
+                    <td>@x.UrunAd</td>
+                    <td>@x.Marka</td>
+                    <td>@x.Stok</td>
+                    <td>@x.AlisFiyat</td>
+                    <td>@x.SatisFiyat</td>
+                    <td>@x.Durum</td>
+                    <td>@x.Kategori.KategoriAd</td>
                 </tr>
             }
         </tbody>

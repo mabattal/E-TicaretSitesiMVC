@@ -137,5 +137,6 @@ namespace E_TicaretSitesiMVC.Controllers
             var deger = context.SatisHarekets.Where(x => x.SatisID == id).ToList();
             return View(deger);
         }
+
     }
 }
