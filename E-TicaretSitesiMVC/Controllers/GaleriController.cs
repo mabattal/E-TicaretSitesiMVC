@@ -13,7 +13,7 @@ namespace E_TicaretSitesiMVC.Controllers
         Context context = new Context();
         public ActionResult Index()
         {
-            var degerler = context.Uruns.ToList();
+            var degerler = context.Uruns.Where(x => x.Durum == true).ToList();
             return View(degerler);
         }
     }

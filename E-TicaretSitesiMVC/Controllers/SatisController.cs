@@ -23,7 +23,7 @@ namespace E_TicaretSitesiMVC.Controllers
             SatisHareket satisHareket = new SatisHareket();
 
             //Ürünler dropdown için ürünler listesi
-            List<SelectListItem> list1 = (from x in context.Uruns.ToList()
+            List<SelectListItem> list1 = (from x in context.Uruns.Where(x => x.Durum == true).ToList()
                                          select new SelectListItem
                                          {
                                              Text = x.UrunAd,
@@ -32,7 +32,7 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.Urunler = list1;
 
             //Cariler dropdown için cariler listesi
-            List<SelectListItem> list2 = (from x in context.Caris.ToList()
+            List<SelectListItem> list2 = (from x in context.Caris.Where(x => x.Durum == true).ToList()
                                          select new SelectListItem
                                          {
                                              Text = x.CariAd + " " + x.CariSoyad,
@@ -41,21 +41,13 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.Cariler = list2;
 
             //Personeller dropdown için personeller listesi
-            List<SelectListItem> list3 = (from x in context.Personels.ToList()
+            List<SelectListItem> list3 = (from x in context.Personels.Where(x => x.Durum == true).ToList()
                                           select new SelectListItem
                                           {
                                               Text = x.PersonelAd + " " + x.PersonelSoyad,
                                               Value = x.PersonelID.ToString()
                                           }).ToList();
             ViewBag.Personeller = list3;
-
-            List<SelectListItem> list4 = (from x in context.Uruns.ToList()
-                                          select new SelectListItem
-                                          {
-                                              Text = x.UrunAd,
-                                              Value = x.UrunID.ToString()
-                                          }).ToList();
-            ViewBag.Urunler = list4;
 
             return View(satisHareket);
         }
@@ -79,7 +71,7 @@ namespace E_TicaretSitesiMVC.Controllers
             var deger = context.SatisHarekets.Find(id);
 
             //Ürünler dropdown için ürünler listesi
-            List<SelectListItem> list1 = (from x in context.Uruns.ToList()
+            List<SelectListItem> list1 = (from x in context.Uruns.Where(x => x.Durum == true).ToList()
                                           select new SelectListItem
                                           {
                                               Text = x.UrunAd,
@@ -88,7 +80,7 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.Urunler = list1;
 
             //Cariler dropdown için cariler listesi
-            List<SelectListItem> list2 = (from x in context.Caris.ToList()
+            List<SelectListItem> list2 = (from x in context.Caris.Where(x => x.Durum == true).ToList()
                                           select new SelectListItem
                                           {
                                               Text = x.CariAd + " " + x.CariSoyad,
@@ -97,21 +89,13 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.Cariler = list2;
 
             //Personeller dropdown için personeller listesi
-            List<SelectListItem> list3 = (from x in context.Personels.ToList()
+            List<SelectListItem> list3 = (from x in context.Personels.Where(x => x.Durum == true).ToList()
                                           select new SelectListItem
                                           {
                                               Text = x.PersonelAd + " " + x.PersonelSoyad,
                                               Value = x.PersonelID.ToString()
                                           }).ToList();
             ViewBag.Personeller = list3;
-
-            List<SelectListItem> list4 = (from x in context.Uruns.ToList()
-                                          select new SelectListItem
-                                          {
-                                              Text = x.UrunAd,
-                                              Value = x.UrunID.ToString()
-                                          }).ToList();
-            ViewBag.Urunler = list4;
 
             return View("SatisEkle",deger);
         }
