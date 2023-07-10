@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
+    <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
@@ -2841,6 +2842,7 @@
     <Content Include="Web\thumber\scss\_site-base.scss" />
     <Content Include="Web\thumber\scss\_site-blocks.scss" />
     <Content Include="Web\thumber\scss\_site-navbar.scss" />
+    <Content Include="Views\Galeri\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
