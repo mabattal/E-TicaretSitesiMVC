@@ -105,7 +105,11 @@ namespace E_TicaretSitesiMVC.Controllers
 
             return View(sorgu.ToList());
 
+        }
 
+        public PartialViewResult Partial1()
+        {
+            return PartialView();
         }
     }
 }
