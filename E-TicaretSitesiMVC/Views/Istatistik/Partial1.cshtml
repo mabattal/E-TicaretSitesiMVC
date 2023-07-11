@@ -1,3 +1,17 @@
-﻿<div style="background-color:red">
-    <h4>merhabalar efendim</h4>
-</div>
+﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.SinifGrup2>
+
+
+
+<table>
+    <tr>
+        <th>DepartmanID</th>
+        <th>Personel Sayısı</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Departman</td>
+            <td>@x.Adet</td>
+        </tr>
+    }
+</table>

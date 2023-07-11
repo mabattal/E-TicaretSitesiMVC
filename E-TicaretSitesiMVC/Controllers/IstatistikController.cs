@@ -109,7 +109,14 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public PartialViewResult Partial1()
         {
-            return PartialView();
+            var sorgu2 = from x in context.Personels.Where(x => x.Sil == false && x.Durum == true)
+                         group x by x.DepartmanID into g
+                         select new SinifGrup2
+                         {
+                             Departman = g.Key,
+                             Adet = g.Count()
+                         };
+            return PartialView(sorgu2.ToList());
         }
     }
 }
