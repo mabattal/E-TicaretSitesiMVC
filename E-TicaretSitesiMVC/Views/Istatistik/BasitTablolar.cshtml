@@ -188,10 +188,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @{ int siraNo = 0;}
                                         @foreach (var x in Model)
                                         {
                                             <tr>
-                                                <td>1.</td>
+                                                <td>@{siraNo++;}@siraNo</td>
                                                 <td>@x.Sehir</td>
                                                 <td>
                                                     <div class="progress progress-xs">
