@@ -1,0 +1,58 @@
+﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.DepartmanGrup>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Departman Personel Sayıları</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Departman</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Sayı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int siraNo = 0;
+                    int oran = 0;
+                }
+
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@{siraNo++;}@siraNo</td>
+                        <td>@x.Departman</td>
+                        <td>
+                            @{oran = (int)(((decimal)x.Adet / x.ToplamAdet) * 100); }
+                            @if (oran < 33)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: @oran%"></div>
+                                </div>
+                            }
+                            else if (oran >= 33 && oran < 66)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-warning" style="width: @oran%"></div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: @oran%"></div>
+                                </div>
+                            }
+                        </td>
+                        <td><span class="badge bg-danger">@oran%</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

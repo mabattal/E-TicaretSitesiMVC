@@ -13,7 +13,7 @@ namespace E_TicaretSitesiMVC.Controllers
         Context context = new Context();
         public ActionResult Index()
         {
-            Class1 cs = new Class1();
+            UrunDetay cs = new UrunDetay();
             cs.Uruns = context.Uruns.Where(x => x.UrunID == 1).ToList();
             cs.Detays = context.Detays.Where(y => y.DetayID == 1).ToList() ;
             return View(cs);

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.SinifGrup>
+﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.CariGrup>
 @{
     ViewBag.Title = "BasitTablolar";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -27,7 +27,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Basit Tablolar</h1>
+                        <h1>Hızlı Bakış Tabloları</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -106,68 +106,8 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-                        @Html.Action("Partial1", "Istatistik")
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Condensed Full Width Table</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body p-0">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Task</th>
-                                            <th>Progress</th>
-                                            <th style="width: 40px">Label</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Update software</td>
-                                            <td>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-danger">55%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2.</td>
-                                            <td>Clean database</td>
-                                            <td>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-warning">70%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3.</td>
-                                            <td>Cron job running</td>
-                                            <td>
-                                                <div class="progress progress-xs progress-striped active">
-                                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-primary">30%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4.</td>
-                                            <td>Fix and squish bugs</td>
-                                            <td>
-                                                <div class="progress progress-xs progress-striped active">
-                                                    <div class="progress-bar bg-success" style="width: 90%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">90%</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
+                        @Html.Action("DepartmanPartial", "Istatistik")
+                        
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->
@@ -188,47 +128,48 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @{ int siraNo = 0;}
+                                        @{
+                                            int siraNo = 0;
+                                            int oran = 0;
+                                            int maksimumSayi = 5;
+                                            int sayac = 0;
+                                        }
+
                                         @foreach (var x in Model)
                                         {
+                                            if (sayac >= maksimumSayi)
+                                            {
+                                                break;
+                                            }
+
                                             <tr>
                                                 <td>@{siraNo++;}@siraNo</td>
                                                 <td>@x.Sehir</td>
                                                 <td>
-                                                    @if (x.Adet == 1)
+                                                    @{oran = (int)(((decimal)x.Adet / x.ToplamAdet) * 100); }
+                                                    @if (oran < 33)
                                                     {
                                                         <div class="progress progress-xs">
-                                                            <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+                                                            <div class="progress-bar bg-warning" style="width: @oran%"></div>
                                                         </div>
                                                     }
-                                                    @if (x.Adet == 2)
+                                                    else if (oran >= 33 && oran < 66)
                                                     {
                                                         <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                                            <div class="progress-bar progress-bar-warning" style="width: @oran%"></div>
                                                         </div>
                                                     }
-                                                    @if (x.Adet >= 3)
+                                                    else
                                                     {
                                                         <div class="progress progress-xs progress-striped active">
-                                                            <div class="progress-bar bg-success" style="width: 90%"></div>
+                                                            <div class="progress-bar bg-success" style="width: @oran%"></div>
                                                         </div>
                                                     }
                                                 </td>
-                                                <td>
-                                                    @if (x.Adet == 1)
-                                                    {
-                                                        <span class="badge bg-primary">@x.Adet</span>
-                                                    }
-                                                    @if (x.Adet == 2)
-                                                    {
-                                                        <span class="badge bg-warning">@x.Adet</span>
-                                                    }
-                                                    @if (x.Adet >= 3)
-                                                    {
-                                                        <span class="badge bg-success">@x.Adet</span>
-                                                    }
-                                                </td>
+                                                <td><span class="badge bg-danger">@oran%</span></td>
                                             </tr>
+
+                                            sayac++;
                                         }
                                     </tbody>
                                 </table>

@@ -145,7 +145,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cari.cs" />
-    <Compile Include="Models\Siniflar\Class1.cs" />
+    <Compile Include="Models\Siniflar\UrunDetay.cs" />
     <Compile Include="Models\Siniflar\Context.cs" />
     <Compile Include="Models\Siniflar\Departman.cs" />
     <Compile Include="Models\Siniflar\Detay.cs" />
@@ -155,8 +155,8 @@
     <Compile Include="Models\Siniflar\Kategori.cs" />
     <Compile Include="Models\Siniflar\Personel.cs" />
     <Compile Include="Models\Siniflar\SatisHareket.cs" />
-    <Compile Include="Models\Siniflar\SinifGrup.cs" />
-    <Compile Include="Models\Siniflar\SinifGrup2.cs" />
+    <Compile Include="Models\Siniflar\CariGrup.cs" />
+    <Compile Include="Models\Siniflar\DepartmanGrup.cs" />
     <Compile Include="Models\Siniflar\Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2851,7 +2851,7 @@
     <Content Include="Views\Galeri\Index.cshtml" />
     <Content Include="Views\UrunDetay\Index.cshtml" />
     <Content Include="Views\Istatistik\BasitTablolar.cshtml" />
-    <Content Include="Views\Istatistik\Partial1.cshtml" />
+    <Content Include="Views\Istatistik\DepartmanPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

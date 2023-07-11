@@ -97,25 +97,28 @@ namespace E_TicaretSitesiMVC.Controllers
         {
             var sorgu = from x in context.Caris.Where(x => x.Sil == false && x.Durum == true)
                         group x by x.CariSehir into g
-                        select new SinifGrup
+                        select new CariGrup
                         {
                             Sehir = g.Key,
-                            Adet = g.Count()
+                            Adet = g.Count(),
+                            ToplamAdet = context.Caris.Count(x => x.Sil == false && x.Durum == true)
                         };
 
             return View(sorgu.ToList());
 
         }
 
-        public PartialViewResult Partial1()
+        public PartialViewResult DepartmanPartial()
         {
             var sorgu2 = from x in context.Personels.Where(x => x.Sil == false && x.Durum == true)
                          group x by x.DepartmanID into g
-                         select new SinifGrup2
+                         select new DepartmanGrup
                          {
                              Departman = g.Key,
-                             Adet = g.Count()
-                         };
+                             Adet = g.Count(),
+                             ToplamAdet = context.Personels.Count(x => x.Sil == false && x.Durum == true)
+
+        };
             return PartialView(sorgu2.ToList());
         }
     }
