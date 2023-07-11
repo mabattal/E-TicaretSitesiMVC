@@ -92,5 +92,11 @@ namespace E_TicaretSitesiMVC.Controllers
 
             return View();
         }
+
+        public ActionResult BasitTablolar()
+        {
+
+            return View();
+        }
     }
 }

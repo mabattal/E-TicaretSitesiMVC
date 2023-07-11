@@ -2848,6 +2848,7 @@
     <Content Include="Templates\thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Galeri\Index.cshtml" />
     <Content Include="Views\UrunDetay\Index.cshtml" />
+    <Content Include="Views\Istatistik\BasitTablolar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
