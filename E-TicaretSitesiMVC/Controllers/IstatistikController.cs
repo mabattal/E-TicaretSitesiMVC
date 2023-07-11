@@ -95,8 +95,17 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult BasitTablolar()
         {
+            var sorgu = from x in context.Caris.Where(x => x.Sil == false && x.Durum == true)
+                        group x by x.CariSehir into g
+                        select new SinifGrup
+                        {
+                            Sehir = g.Key,
+                            Oran = g.Count()
+                        };
 
-            return View();
+            return View(sorgu.ToList());
+
+
         }
     }
 }
