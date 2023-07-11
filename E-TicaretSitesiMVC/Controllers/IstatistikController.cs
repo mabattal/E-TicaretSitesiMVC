@@ -100,7 +100,7 @@ namespace E_TicaretSitesiMVC.Controllers
                         select new SinifGrup
                         {
                             Sehir = g.Key,
-                            Oran = g.Count()
+                            Adet = g.Count()
                         };
 
             return View(sorgu.ToList());

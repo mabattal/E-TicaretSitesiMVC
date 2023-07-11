@@ -8,6 +8,6 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
     public class SinifGrup
     {
         public string Sehir { get; set; }
-        public decimal Oran { get; set; }
+        public decimal Adet { get; set; }
     }
 }
