@@ -53,7 +53,7 @@ namespace E_TicaretSitesiMVC.Controllers
                          {
                              Kategori = g.Key,
                              Adet = g.Count(),
-                             ToplamAdet = context.Uruns.Count(x => x.Sil == false && x.Durum == true)
+                             ToplamAdet = context.Uruns.Count(x => x.Sil == false)
                          };
 
             return PartialView(sorgu3.ToList());
@@ -68,6 +68,19 @@ namespace E_TicaretSitesiMVC.Controllers
         public PartialViewResult UrunPartial()
         {
             var sorgu = context.Uruns.Where(x => x.Sil == false).ToList();
+            return PartialView(sorgu.ToList());
+        }
+
+        public PartialViewResult MarkaPartial()
+        {
+            var sorgu = from x in context.Uruns
+                        group x by x.Marka into g
+                        select new MarkaGrup
+                        {
+                            Marka = g.Key,
+                            Adet = g.Count(),
+                            ToplamAdet = context.Uruns.Count(x => x.Sil == false)
+                        };
             return PartialView(sorgu.ToList());
         }
     }

@@ -147,6 +147,7 @@
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cari.cs" />
     <Compile Include="Models\Siniflar\KategoriGrup.cs" />
+    <Compile Include="Models\Siniflar\MarkaGrup.cs" />
     <Compile Include="Models\Siniflar\UrunDetay.cs" />
     <Compile Include="Models\Siniflar\Context.cs" />
     <Compile Include="Models\Siniflar\Departman.cs" />
@@ -2858,6 +2859,7 @@
     <Content Include="Views\BasitTablolar\KategoriPartial.cshtml" />
     <Content Include="Views\BasitTablolar\PersonelPartial.cshtml" />
     <Content Include="Views\BasitTablolar\UrunPartial.cshtml" />
+    <Content Include="Views\BasitTablolar\MarkaPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
