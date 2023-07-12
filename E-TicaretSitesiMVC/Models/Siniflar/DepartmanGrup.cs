@@ -7,7 +7,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
 {
     public class DepartmanGrup
     {
-        public int Departman { get; set; }
+        public string Departman { get; set; }
         public int Adet { get; set; }
         public int ToplamAdet { get; set; }
     }

@@ -103,7 +103,7 @@ namespace E_TicaretSitesiMVC.Controllers
         public PartialViewResult DepartmanPartial()
         {
             var sorgu2 = from x in context.Personels.Where(x => x.Sil == false && x.Durum == true)
-                         group x by x.DepartmanID into g
+                         group x by x.Departman.DepartmanAd into g
                          select new DepartmanGrup
                          {
                              Departman = g.Key,
