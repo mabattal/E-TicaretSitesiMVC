@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BasitTablolarController.cs" />
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
@@ -2851,10 +2852,10 @@
     <Content Include="Templates\thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Galeri\Index.cshtml" />
     <Content Include="Views\UrunDetay\Index.cshtml" />
-    <Content Include="Views\Istatistik\BasitTablolar.cshtml" />
-    <Content Include="Views\Istatistik\DepartmanPartial.cshtml" />
-    <Content Include="Views\Istatistik\CariPartial.cshtml" />
-    <Content Include="Views\Istatistik\KategoriPartial.cshtml" />
+    <Content Include="Views\BasitTablolar\Index.cshtml" />
+    <Content Include="Views\BasitTablolar\DepartmanPartial.cshtml" />
+    <Content Include="Views\BasitTablolar\CariPartial.cshtml" />
+    <Content Include="Views\BasitTablolar\KategoriPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

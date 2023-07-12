@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.CariGrup>
+﻿
 @{
     ViewBag.Title = "BasitTablolar";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -44,15 +44,15 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        @Html.Action("KategoriPartial", "Istatistik")
+                        @Html.Action("KategoriPartial", "BasitTablolar")
                         <!-- /.card -->
-                        @Html.Action("DepartmanPartial", "Istatistik")
-                        
+                        @Html.Action("DepartmanPartial", "BasitTablolar")
+
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
-                        @Html.Action("CariPartial", "Istatistik")
+                        @Html.Action("CariPartial", "BasitTablolar")
                         <!-- /.card -->
 
                         <div class="card">
