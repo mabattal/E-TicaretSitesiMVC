@@ -132,7 +132,7 @@ namespace E_TicaretSitesiMVC.Controllers
         public PartialViewResult KategoriPartial()
         {
             var sorgu3 = from x in context.Uruns
-                         group x by x.KategoriID into g
+                         group x by x.Kategori.KategoriAd into g
                          select new KategoriGrup
                          {
                              Kategori = g.Key,

@@ -7,7 +7,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
 {
     public class KategoriGrup
     {
-        public int Kategori { get; set; }
+        public string Kategori { get; set; }
         public int Adet { get; set; }
         public int ToplamAdet { get; set; }
     }
