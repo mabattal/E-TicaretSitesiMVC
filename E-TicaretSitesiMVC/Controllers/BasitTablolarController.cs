@@ -34,12 +34,15 @@ namespace E_TicaretSitesiMVC.Controllers
         {
             var sorgu = from x in context.Caris.Where(x => x.Sil == false && x.Durum == true)
                         group x by x.CariSehir into g
+                        let adet = g.Count()
+                        orderby adet descending
                         select new CariGrup
                         {
                             Sehir = g.Key,
-                            Adet = g.Count(),
+                            Adet = adet,
                             ToplamAdet = context.Caris.Count(x => x.Sil == false && x.Durum == true)
                         };
+
 
             return PartialView(sorgu.ToList());
 
