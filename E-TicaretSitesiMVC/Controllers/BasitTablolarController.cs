@@ -61,7 +61,13 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public PartialViewResult PersonelPartial()
         {
-            var sorgu = context.Personels.ToList();
+            var sorgu = context.Personels.Where(x => x.Sil == false && x.Durum == true).ToList();
+            return PartialView(sorgu.ToList());
+        }
+
+        public PartialViewResult UrunPartial()
+        {
+            var sorgu = context.Uruns.Where(x => x.Sil == false).ToList();
             return PartialView(sorgu.ToList());
         }
     }
