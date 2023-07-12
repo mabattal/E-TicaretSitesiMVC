@@ -1,17 +1,17 @@
-﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.DepartmanGrup>
+﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.KategoriGrup>
 
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Departman Personel Tablosu</h3>
+        <h3 class="card-title">Kategori Ürün Tablosu</h3>
     </div>
     <!-- /.card-header -->
-    <div class="card-body p-0">
-        <table class="table table-sm">
+    <div class="card-body">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Departman</th>
+                    <th>Kategori Adı</th>
                     <th>Oran</th>
                     <th style="width: 40px"></th>
                 </tr>
@@ -26,7 +26,7 @@
                 {
                     <tr>
                         <td>@{siraNo++;}@siraNo</td>
-                        <td>@x.Departman</td>
+                        <td>@x.Kategori</td>
                         <td>
                             @{oran = (int)(((decimal)x.Adet / x.ToplamAdet) * 100); }
                             @if (oran < 33)

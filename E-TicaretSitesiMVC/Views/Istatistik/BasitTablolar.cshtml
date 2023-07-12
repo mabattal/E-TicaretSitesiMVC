@@ -44,67 +44,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Kategori Tablosu</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Kategori Adı</th>
-                                            <th>Oran</th>
-                                            <th style="width: 40px"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Update software</td>
-                                            <td>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-danger">55%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2.</td>
-                                            <td>Clean database</td>
-                                            <td>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-warning">70%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3.</td>
-                                            <td>Cron job running</td>
-                                            <td>
-                                                <div class="progress progress-xs progress-striped active">
-                                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-primary">30%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4.</td>
-                                            <td>Fix and squish bugs</td>
-                                            <td>
-                                                <div class="progress progress-xs progress-striped active">
-                                                    <div class="progress-bar bg-success" style="width: 90%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-success">90%</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
+                        @Html.Action("KategoriPartial", "Istatistik")
                         <!-- /.card -->
                         @Html.Action("DepartmanPartial", "Istatistik")
                         
@@ -112,70 +52,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Müşteri Şehir Tablosu</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body p-0">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Şehir</th>
-                                            <th>Oran</th>
-                                            <th style="width: 40px">Adet</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            int siraNo = 0;
-                                            int oran = 0;
-                                            int maksimumSayi = 5;
-                                            int sayac = 0;
-                                        }
-
-                                        @foreach (var x in Model)
-                                        {
-                                            if (sayac >= maksimumSayi)
-                                            {
-                                                break;
-                                            }
-
-                                            <tr>
-                                                <td>@{siraNo++;}@siraNo</td>
-                                                <td>@x.Sehir</td>
-                                                <td>
-                                                    @{oran = (int)(((decimal)x.Adet / x.ToplamAdet) * 100); }
-                                                    @if (oran < 33)
-                                                    {
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar bg-warning" style="width: @oran%"></div>
-                                                        </div>
-                                                    }
-                                                    else if (oran >= 33 && oran < 66)
-                                                    {
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar progress-bar-warning" style="width: @oran%"></div>
-                                                        </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div class="progress progress-xs progress-striped active">
-                                                            <div class="progress-bar bg-success" style="width: @oran%"></div>
-                                                        </div>
-                                                    }
-                                                </td>
-                                                <td><span class="badge bg-danger">@oran%</span></td>
-                                            </tr>
-
-                                            sayac++;
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
+                        @Html.Action("CariPartial", "Istatistik")
                         <!-- /.card -->
 
                         <div class="card">

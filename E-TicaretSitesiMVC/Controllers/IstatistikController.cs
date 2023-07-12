@@ -95,16 +95,8 @@ namespace E_TicaretSitesiMVC.Controllers
 
         public ActionResult BasitTablolar()
         {
-            var sorgu = from x in context.Caris.Where(x => x.Sil == false && x.Durum == true)
-                        group x by x.CariSehir into g
-                        select new CariGrup
-                        {
-                            Sehir = g.Key,
-                            Adet = g.Count(),
-                            ToplamAdet = context.Caris.Count(x => x.Sil == false && x.Durum == true)
-                        };
-
-            return View(sorgu.ToList());
+            
+            return View();
 
         }
 
@@ -118,8 +110,37 @@ namespace E_TicaretSitesiMVC.Controllers
                              Adet = g.Count(),
                              ToplamAdet = context.Personels.Count(x => x.Sil == false && x.Durum == true)
 
-        };
+                         };
             return PartialView(sorgu2.ToList());
+        }
+
+        public PartialViewResult CariPartial()
+        {
+            var sorgu = from x in context.Caris.Where(x => x.Sil == false && x.Durum == true)
+                        group x by x.CariSehir into g
+                        select new CariGrup
+                        {
+                            Sehir = g.Key,
+                            Adet = g.Count(),
+                            ToplamAdet = context.Caris.Count(x => x.Sil == false && x.Durum == true)
+                        };
+
+            return PartialView(sorgu.ToList());
+
+        }
+
+        public PartialViewResult KategoriPartial()
+        {
+            var sorgu3 = from x in context.Uruns
+                         group x by x.KategoriID into g
+                         select new KategoriGrup
+                         {
+                             Kategori = g.Key,
+                             Adet = g.Count(),
+                             ToplamAdet = context.Uruns.Count(x => x.Sil == false && x.Durum == true)
+                         };
+
+            return PartialView(sorgu3.ToList());
         }
     }
 }

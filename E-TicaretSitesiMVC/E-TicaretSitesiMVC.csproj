@@ -145,6 +145,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cari.cs" />
+    <Compile Include="Models\Siniflar\KategoriGrup.cs" />
     <Compile Include="Models\Siniflar\UrunDetay.cs" />
     <Compile Include="Models\Siniflar\Context.cs" />
     <Compile Include="Models\Siniflar\Departman.cs" />
@@ -2852,6 +2853,8 @@
     <Content Include="Views\UrunDetay\Index.cshtml" />
     <Content Include="Views\Istatistik\BasitTablolar.cshtml" />
     <Content Include="Views\Istatistik\DepartmanPartial.cshtml" />
+    <Content Include="Views\Istatistik\CariPartial.cshtml" />
+    <Content Include="Views\Istatistik\KategoriPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

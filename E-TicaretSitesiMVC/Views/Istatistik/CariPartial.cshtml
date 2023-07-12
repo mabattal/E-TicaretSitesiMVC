@@ -1,17 +1,16 @@
-﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.DepartmanGrup>
-
+﻿@model IEnumerable<E_TicaretSitesiMVC.Models.Siniflar.CariGrup>
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Departman Personel Tablosu</h3>
+        <h3 class="card-title">Müşteri Şehir Tablosu</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <table class="table table-sm">
+        <table class="table">
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Departman</th>
+                    <th>Şehir</th>
                     <th>Oran</th>
                     <th style="width: 40px"></th>
                 </tr>
@@ -20,13 +19,20 @@
                 @{
                     int siraNo = 0;
                     int oran = 0;
+                    int maksimumSayi = 5;
+                    int sayac = 0;
                 }
 
                 @foreach (var x in Model)
                 {
+                    if (sayac >= maksimumSayi)
+                    {
+                        break;
+                    }
+
                     <tr>
                         <td>@{siraNo++;}@siraNo</td>
-                        <td>@x.Departman</td>
+                        <td>@x.Sehir</td>
                         <td>
                             @{oran = (int)(((decimal)x.Adet / x.ToplamAdet) * 100); }
                             @if (oran < 33)
@@ -50,6 +56,8 @@
                         </td>
                         <td><span class="badge bg-danger">@oran%</span></td>
                     </tr>
+
+                    sayac++;
                 }
             </tbody>
         </table>
