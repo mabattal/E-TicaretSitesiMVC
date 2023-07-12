@@ -161,6 +161,7 @@
     <Compile Include="Models\Siniflar\CariGrup.cs" />
     <Compile Include="Models\Siniflar\DepartmanGrup.cs" />
     <Compile Include="Models\Siniflar\Urun.cs" />
+    <Compile Include="Models\Siniflar\Yapilacak.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
