@@ -2856,6 +2856,7 @@
     <Content Include="Views\BasitTablolar\DepartmanPartial.cshtml" />
     <Content Include="Views\BasitTablolar\CariPartial.cshtml" />
     <Content Include="Views\BasitTablolar\KategoriPartial.cshtml" />
+    <Content Include="Views\BasitTablolar\PersonelPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

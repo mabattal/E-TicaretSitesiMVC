@@ -58,5 +58,11 @@ namespace E_TicaretSitesiMVC.Controllers
 
             return PartialView(sorgu3.ToList());
         }
+
+        public PartialViewResult PersonelPartial()
+        {
+            var sorgu = context.Personels.ToList();
+            return PartialView(sorgu.ToList());
+        }
     }
 }
