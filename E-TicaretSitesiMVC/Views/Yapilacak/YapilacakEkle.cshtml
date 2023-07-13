@@ -1,0 +1,15 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.Yapilacak
+@{
+    ViewBag.Title = "YapilacakEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yapilacak Ekle</h2>
+<br />
+
+<form class="form-group" method="post" action="YapilacakEkle">
+    <label>Başlık:</label>
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>
