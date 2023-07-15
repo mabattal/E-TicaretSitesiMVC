@@ -2899,7 +2899,6 @@
     <Content Include="Templates\weblogin\fonts\fontawesome-webfont.woff2" />
     <Content Include="Templates\weblogin\fonts\FontAwesome.otf" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Login\KayitOlPartial.cshtml" />
     <Content Include="Templates\webpanel\.travis.yml" />
     <Content Include="Templates\webpanel\LICENSE" />
     <Content Include="Templates\webpanel\package-lock.json" />
