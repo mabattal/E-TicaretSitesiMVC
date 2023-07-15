@@ -1,7 +1,7 @@
 
 ![aspnet](https://github.com/mabattal/E-TicaretSitesiMVC/blob/master/E-TicaretSitesiMVC/Templates/AdminLTE-3.0.4/dist/img/proje.png?raw=true)
 
-<h1 align="center">Merhabalar</h1>
+<h1 align="center">Merhaba</h1>
 <h4>Udemy ve Youtube'da kaliteli eğitimler sunan Murat Yücedağ hocanın "ASP.Net MVC5 ile Online Ticari Otomasyon" eğitiminden esinlenerek böyle bir proje ortaya çıkardım. Admin panelini ASP.Net MVC teknolojisi ve MSSQL veritabanını kullanarak geliştirdim. 
 Uygulama amacı kısaca personellerin stok ve ürün takibini yapması, Müşterilerin siteme giriş yaparak sipariş vermeleri olarak açıklanabilir.</h4>
 <h2>Kullandığım Teknolojiler</h2>
