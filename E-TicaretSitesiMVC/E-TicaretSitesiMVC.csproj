@@ -2880,6 +2880,7 @@
     <Content Include="Templates\weblogin\fonts\fontawesome-webfont.woff2" />
     <Content Include="Templates\weblogin\fonts\FontAwesome.otf" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\KayitOl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
