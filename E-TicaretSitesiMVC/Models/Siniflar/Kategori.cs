@@ -12,6 +12,7 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         [Key]
         public int KategoriID { get; set; }
 
+        [Display(Name = "Kategori Adı")]
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string KategoriAd { get; set; }
