@@ -136,6 +136,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
@@ -2369,6 +2370,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Templates\weblogin\css\font-awesome.css" />
+    <Content Include="Templates\weblogin\css\popup-box.css" />
+    <Content Include="Templates\weblogin\css\style.css" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\weblogin\images\bg.jpg" />
+    <Content Include="Templates\weblogin\index.html" />
+    <Content Include="Templates\weblogin\js\jquery-2.1.4.min.js" />
+    <Content Include="Templates\weblogin\js\jquery.magnific-popup.js" />
+    <Content Include="Templates\weblogin\w3layouts-License.txt" />
     <Content Include="Templates\Web\.gitignore" />
     <Content Include="Templates\Web\dist\401.html" />
     <Content Include="Templates\Web\dist\404.html" />
@@ -2864,6 +2874,12 @@
     <Content Include="Views\BasitTablolar\MarkaPartial.cshtml" />
     <Content Include="Views\Yapilacak\Index.cshtml" />
     <Content Include="Views\Yapilacak\YapilacakEkle.cshtml" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\weblogin\fonts\FontAwesome.otf" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
