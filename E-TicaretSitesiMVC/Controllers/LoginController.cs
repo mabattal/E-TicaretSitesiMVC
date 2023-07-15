@@ -14,7 +14,7 @@ namespace E_TicaretSitesiMVC.Controllers
             return View();
         }
 
-        public PartialViewResult KayitOl()
+        public PartialViewResult KayitOlPartial()
         {
             return PartialView();
         }
