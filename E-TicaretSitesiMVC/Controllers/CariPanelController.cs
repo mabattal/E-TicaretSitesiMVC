@@ -20,5 +20,27 @@ namespace E_TicaretSitesiMVC.Controllers
             ViewBag.adsoy = cari.CariAd + " " + cari.CariSoyad;
             return View(cari);
         }
+
+        public ActionResult Profil()
+        {
+            var mail = (string)Session["CariMail"];
+            var cari = context.Caris.FirstOrDefault(x => x.CariMail == mail);
+            return View(cari);
+        }
+
+        public ActionResult ProfilGuncelle(Cari cari)
+        {
+            //sessionla gelen maili yakaladık
+            var mail = (string)Session["CariMail"];
+            //maile ait cariyi bulduk
+            var deger = context.Caris.FirstOrDefault(x => x.CariMail == mail);
+           
+            deger.CariAd = cari.CariAd;
+            deger.CariSoyad = cari.CariSoyad;
+            deger.CariSehir = cari.CariSehir;
+            deger.Sifre = cari.Sifre;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

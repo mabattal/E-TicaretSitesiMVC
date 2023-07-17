@@ -1,0 +1,32 @@
+﻿@model E_TicaretSitesiMVC.Models.Siniflar.Cari
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<br />
+<h3>Profil Bilgilerim</h3>
+<br />
+@using (Html.BeginForm("ProfilGuncelle", "CariPanel", FormMethod.Post))
+{
+    <table class="table table-borderless">
+        <tr>
+            <td><label>E-Posta: @HttpContext.Current.User.Identity.Name</label></td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", style = "width: 200px", placeholder = "Ad..." })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", style = "width: 200px", placeholder = "Soyad..." })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", style = "width: 200px", placeholder = "Şehir..." })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control", style = "width: 200px", placeholder = "Şifre..." })</td>
+        </tr>
+    </table>
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+
