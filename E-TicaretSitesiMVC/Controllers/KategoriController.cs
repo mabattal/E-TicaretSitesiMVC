@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using E_TicaretSitesiMVC.Models.Siniflar;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_TicaretSitesiMVC.Controllers
 {
@@ -11,9 +13,9 @@ namespace E_TicaretSitesiMVC.Controllers
     {
         // GET: Kategori
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
-            var degerler = context.Kategoris.ToList();
+            var degerler = context.Kategoris.ToList().ToPagedList(sayfa, 4);
             return View(degerler);
         }
 
