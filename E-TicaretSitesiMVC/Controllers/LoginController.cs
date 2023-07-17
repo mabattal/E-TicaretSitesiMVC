@@ -54,5 +54,27 @@ namespace E_TicaretSitesiMVC.Controllers
                 return RedirectToAction("Index", "Login");
             }            
         }
+
+        [HttpGet]
+        public ActionResult AdminGiris()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdminGiris(Admin admin)
+        {
+            var bilgiler = context.Admins.FirstOrDefault(x => x.KullaniciAd == admin.KullaniciAd && x.Sifre == admin.Sifre);
+            if(bilgiler != null)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.KullaniciAd, false);
+                Session["KullaniciAd"] = bilgiler.KullaniciAd.ToString();
+                return RedirectToAction("Index", "Istatistik");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+        }
     }
 }

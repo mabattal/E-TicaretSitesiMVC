@@ -22,7 +22,7 @@
             <td>@x.Adet</td>
             <td>@x.Fiyat</td>
             <td>@x.ToplamTutar</td>
-            <td>@x.Tarih</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToShortDateString()</td>
         </tr>
     }
 </table>
