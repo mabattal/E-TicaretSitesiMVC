@@ -14,11 +14,14 @@ namespace E_TicaretSitesiMVC.Controllers
     {
         // GET: Cari
         Context context = new Context();
-        public ActionResult Index(int sayfa = 1)
+        public ActionResult Index(int sayfa = 1, string parametre ="")
         {
-            var cari = context.Caris.Where(x => x.Sil == false).ToList().ToPagedList(sayfa, 8);
-
-            return View(cari);
+            var cariler = from x in context.Caris.Where(x => x.Sil == false) select x;
+            if (!string.IsNullOrEmpty(parametre))
+            {
+                cariler = cariler.Where(x => (x.CariAd + " " + x.CariSoyad).Contains(parametre));
+            }
+            return View(cariler.ToList().ToPagedList(sayfa, 8));
         }
 
         public ActionResult CariEkle()

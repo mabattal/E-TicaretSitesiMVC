@@ -7,6 +7,14 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
+@using (Html.BeginForm("Index", "Cari", FormMethod.Get))
+{
+    <p>
+        Cari Ad Soyad: @Html.TextBox("parametre")
+        <input type="submit" class="btn btn-success" value="Ara" />
+    </p>
+}
+<br />
 <table class="table table-striped">
     <tr>
         <th>ID</th>
@@ -39,6 +47,6 @@
         </tr>
     }
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
 <a href="/Cari/CariEkle" class="btn btn-info">Ekle</a>
 
