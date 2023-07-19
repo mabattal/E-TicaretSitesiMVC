@@ -348,6 +348,7 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Fatura toplam hesapla Trigger.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -433,6 +434,7 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Stok azaltma trigger.txt" />
     <Content Include="Templates\AdminLTE-3.0.4\.gitignore" />
     <Content Include="Templates\AdminLTE-3.0.4\Adminlteüründetay.txt" />
     <Content Include="Templates\AdminLTE-3.0.4\build\config\postcss.config.js" />
