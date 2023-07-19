@@ -6,30 +6,23 @@
 <br />
 <h2>@ViewBag.Title</h2>
 <br />
-
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Fatura Seri/Sıra No: @ViewBag.serisira</li>
+</ol>
 @{
     string formAction = Model.FaturaDetayID > 0 ? "SatisGuncelle" : "FaturaDetayEkle";
     string text = Model.FaturaDetayID > 0 ? "Güncelle" : "Kaydet";
 }
 
-@using (Html.BeginForm(formAction, "Fatura", FormMethod.Post))
+@using (Html.BeginForm(formAction, "Fatura", new { faturaID = ViewBag.FaturaID }, FormMethod.Post))
 {
     <form class="form-group" method="post">
         @Html.HiddenFor(x => x.FaturaDetayID)
-        @Html.Label("Açıklama:")
-        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+        @Html.Label("Ürün:")
+        @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.Urunler, new { @class = "form-control" })
         <br />
         @Html.Label("Miktar:")
         @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
-        <br />
-        @Html.Label("Birim Fiyat:")
-        @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
-        <br />
-        @Html.Label("Tutar:")
-        @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
-        <br />
-        @Html.Label("Fatura ID:")
-        @Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control" })
         <br />
         <button class="btn btn-success">@text</button>
     </form>

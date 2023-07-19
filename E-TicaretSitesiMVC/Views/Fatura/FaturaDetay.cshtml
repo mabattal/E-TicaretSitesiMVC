@@ -8,13 +8,13 @@
 <h2>Fatura Detay</h2>
 <br />
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Fatura ID: @ViewBag.FaturaID</li>
+    <li class="breadcrumb-item active">Fatura Seri/Sıra No: @ViewBag.serisira</li>
 </ol>
 
 <table class="table table-hover">
     <tr>
         <th>ID</th>
-        <th>Açıklama</th>
+        <th>Ürün</th>
         <th>Miktar</th>
         <th>Birim Fiyat</th>
         <th>Tutar</th>
@@ -23,7 +23,7 @@
     {
         <tr>
             <td>@x.FaturaDetayID</td>
-            <td>@x.Aciklama</td>
+            <td>@x.Urun.UrunAd</td>
             <td>@x.Miktar</td>
             <td>@x.BirimFiyat</td>
             <td>@x.Tutar</td>
@@ -31,4 +31,5 @@
     }
 
 </table>
-<a href="/Fatura/FaturaDetayEkle" class="btn btn-info">Ürün Ekle</a>
+@Html.ActionLink("Ürün Ekle", "FaturaDetayEkle", "Fatura", new { faturaID = ViewBag.FaturaID }, new { @class = "btn btn-success" })
+

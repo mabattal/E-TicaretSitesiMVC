@@ -31,5 +31,6 @@ namespace E_TicaretSitesiMVC.Models.Siniflar
         public int KategoriID { get; set; }
         public virtual Kategori Kategori { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
+        public ICollection<FaturaDetay> FaturaDetays { get; set; }
     }
 }
