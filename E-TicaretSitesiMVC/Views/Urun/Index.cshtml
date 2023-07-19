@@ -8,16 +8,22 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
+@using(Html.BeginForm("Index", "Urun", FormMethod.Get))
+            {
+                <p>
+                    Ürün Adı: @Html.TextBox("parametre") 
+                    <input  type="submit" class="btn btn-success" value="Ara"/>
+                </p>
+            }
+<br />
 <table class="table table-bordered">
     <tr>
-        <th>ID</th>
         <th>Ürün Adı</th>
         <th>Marka</th>
         <th>Stok</th>
         <th>Alış Fiyatı</th>
         <th>Satış Fiyatı</th>
         <th>Kategori</th>
-        <th>Görsel</th>
         <th>Durum</th>
         <th>Sil</th>
         <th>Güncelle</th>
@@ -25,14 +31,12 @@
     @foreach (var u in Model)
     {
         <tr>
-            <td>@u.UrunID</td>
             <td>@u.UrunAd</td>
             <td>@u.Marka</td>
             <td>@u.Stok</td>
-            <td>@u.AlisFiyat</td>
-            <td>@u.SatisFiyat</td>
+            <td>@u.AlisFiyat ₺</td>
+            <td>@u.SatisFiyat ₺</td>
             <td>@u.Kategori.KategoriAd</td>
-            <td>@u.UrunGorsel</td>
             <td>
                 @if (u.Durum)
                 {<span class="text-success">Aktif</span>}

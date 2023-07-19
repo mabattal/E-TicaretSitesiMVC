@@ -13,10 +13,14 @@ namespace E_TicaretSitesiMVC.Controllers
     {
         // GET: Urun
         Context context = new Context();
-        public ActionResult Index(int sayfa = 1)
-        {
-            var urunler = context.Uruns.Where(x => x.Sil == false).ToList().ToPagedList(sayfa,8);
-            return View(urunler);
+        public ActionResult Index(int sayfa = 1, string parametre = "")
+        {            
+            var urunler = from x in context.Uruns.Where(x => x.Sil == false) select x;
+            if (!string.IsNullOrEmpty(parametre))
+            {
+                urunler = urunler.Where(x => x.UrunAd.Contains(parametre));
+            }
+            return View(urunler.ToList().ToPagedList(sayfa, 8));
         }
 
         [HttpGet]
