@@ -7,7 +7,14 @@
     ViewBag.Title = "PersonelListe";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<br />
+@using (Html.BeginForm("Index", "Personel", FormMethod.Get))
+{
+    <p>
+        Personel Ad Soyad: @Html.TextBox("parametre")
+        <input type="submit" class="btn btn-success" value="Ara" />
+    </p>
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +91,7 @@
                 </div>
             </div>
             <!-- /.card -->
-            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("index", new {sayfa}))
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("index", new { sayfa }))
             <a href="/Personel/PersonelEkle" class="btn btn-info">Yeni Personel</a>
         </section>
         <!-- /.content -->

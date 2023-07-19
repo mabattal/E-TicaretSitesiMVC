@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using System.Web.UI.WebControls;
 
 namespace E_TicaretSitesiMVC.Controllers
 {
@@ -13,10 +14,14 @@ namespace E_TicaretSitesiMVC.Controllers
     {
         // GET: Personel
         Context context = new Context();
-        public ActionResult Index(int sayfa = 1)
+        public ActionResult Index(int sayfa = 1, string parametre = "")
         {
-            var deger = context.Personels.Where(x => x.Sil == false).ToList().ToPagedList(sayfa, 8);
-            return View(deger);
+            var personeller = from x in context.Personels.Where(x => x.Sil == false) select x;
+            if (!string.IsNullOrEmpty(parametre))
+            {
+                personeller = personeller.Where(x => (x.PersonelAd + " " + x.PersonelSoyad).Contains(parametre));
+            }
+            return View(personeller.ToList().ToPagedList(sayfa, 9));
         }
 
         [HttpGet]
