@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace E_TicaretSitesiMVC.Controllers
 {
@@ -11,9 +13,9 @@ namespace E_TicaretSitesiMVC.Controllers
     {
         // GET: Personel
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
-            var deger = context.Personels.Where(x => x.Sil == false).ToList();
+            var deger = context.Personels.Where(x => x.Sil == false).ToList().ToPagedList(sayfa, 8);
             return View(deger);
         }
 

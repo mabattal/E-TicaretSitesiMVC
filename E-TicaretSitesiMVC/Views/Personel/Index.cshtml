@@ -1,5 +1,7 @@
 ﻿@using E_TicaretSitesiMVC.Models.Siniflar
-@model List<Personel>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Personel>
 
 @{
     ViewBag.Title = "PersonelListe";
@@ -82,6 +84,7 @@
                 </div>
             </div>
             <!-- /.card -->
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("index", new {sayfa}))
             <a href="/Personel/PersonelEkle" class="btn btn-info">Yeni Personel</a>
         </section>
         <!-- /.content -->

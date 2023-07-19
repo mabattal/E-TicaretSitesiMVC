@@ -15,7 +15,7 @@ namespace E_TicaretSitesiMVC.Controllers
         Context context = new Context();
         public ActionResult Index(int sayfa = 1)
         {
-            var degerler = context.Kategoris.ToList().ToPagedList(sayfa, 4);
+            var degerler = context.Kategoris.ToList().ToPagedList(sayfa, 8);
             return View(degerler);
         }
 

@@ -1,5 +1,7 @@
 ﻿@using E_TicaretSitesiMVC.Models.Siniflar
-@model List<Fatura>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Fatura>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -36,5 +38,6 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
 <a href="/Fatura/FaturaEkle" class="btn btn-info">Yeni Fatura Oluştur</a>
 

@@ -1,5 +1,8 @@
 ﻿@using E_TicaretSitesiMVC.Models.Siniflar;
-@model List<Urun>
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Urun>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -41,4 +44,5 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
 <a href="/Urun/UrunEkle" class="btn btn-info">Ekle</a>
