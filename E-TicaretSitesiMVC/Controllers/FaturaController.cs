@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using E_TicaretSitesiMVC.Models.Siniflar;
 using PagedList;
 using PagedList.Mvc;
@@ -13,10 +14,14 @@ namespace E_TicaretSitesiMVC.Controllers
     {
         // GET: Fatura
         Context context = new Context();
-        public ActionResult Index(int sayfa = 1)
+        public ActionResult Index(int sayfa = 1, string parametre = "")
         {
-            var liste = context.Faturas.ToList().ToPagedList(sayfa, 8);
-            return View(liste);
+            var faturalar = from x in context.Faturas select x;
+            if (!string.IsNullOrEmpty(parametre))
+            {
+                faturalar = faturalar.Where(x => (x.FaturaSeriNo + x.FaturaSiraNo).Contains(parametre));
+            }
+            return View(faturalar.ToList().ToPagedList(sayfa, 8));
         }
 
         [HttpGet]

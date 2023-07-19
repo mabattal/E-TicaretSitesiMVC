@@ -7,11 +7,18 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
+@using (Html.BeginForm("Index", "Fatura", FormMethod.Get))
+{
+    <p>
+        Seri/Sıra No: @Html.TextBox("parametre")
+        <input type="submit" class="btn btn-success" value="Ara" />
+    </p>
+}
+<br />
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
-        <th>Seri No</th>
-        <th>Sıra No</th>
+        <th>Seri/Sıra No</th>
         <th>Vergi Dairesi</th>
         <th>Tarih</th>
         <th>Saat</th>
@@ -25,8 +32,7 @@
     {
         <tr>
             <td>@f.FaturaID</td>
-            <td>@f.FaturaSeriNo</td>
-            <td>@f.FaturaSiraNo</td>
+            <td>@f.FaturaSeriNo@f.FaturaSiraNo</td>
             <td>@f.VergiDairesi</td>
             <td>@f.Tarih.ToShortDateString()</td>
             <td>@f.Tarih.ToLongTimeString()</td>
@@ -38,6 +44,6 @@
         </tr>
     }
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
 <a href="/Fatura/FaturaEkle" class="btn btn-info">Yeni Fatura Oluştur</a>
 
