@@ -1,0 +1,8 @@
+Create Trigger FaturaToplam
+On FaturaDetays
+After insert
+as
+Declare @faturaId int
+Declare @tutar int
+Select @faturaId = FaturaID, @tutar = Tutar from inserted
+Update Faturas set Toplam = Toplam + @tutar where FaturaID = @faturaId
