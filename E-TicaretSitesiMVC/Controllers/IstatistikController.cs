@@ -31,7 +31,7 @@ namespace E_TicaretSitesiMVC.Controllers
             //Toplam Stok
             ViewBag.d5 = context.Uruns
                 .Where(x => x.Sil == false && x.Durum == true)
-                .Sum(x => x.Stok).ToString();
+                .Sum(x => (int?)x.Stok) ?? 0;
 
             //Marka Sayısı
             ViewBag.d6 = (from x in context.Uruns select x.Marka).Distinct().Count().ToString();
@@ -42,13 +42,13 @@ namespace E_TicaretSitesiMVC.Controllers
 
             //En Pahalı Ürün (Fiyat)
             ViewBag.d8 = (from x in context.Uruns
-                          .Where(x => x.Sil == false && x.Durum == true)
-                          select x.SatisFiyat).Max().ToString();
+              .Where(x => x.Sil == false && x.Durum == true)
+                          select (decimal?)x.SatisFiyat).Max() ?? 0;
 
             //En Ucuz Ürün (Fiyat)
             ViewBag.d9 = (from x in context.Uruns
                           .Where(x => x.Sil == false && x.Durum == true)
-                          select x.SatisFiyat).Min().ToString();
+                          select (decimal?)x.SatisFiyat).Min() ?? 0;
 
             //En Fazla Ürün (Marka)
             ViewBag.d10 = context.Uruns.GroupBy(x => x.Marka).OrderByDescending(z => z.Count()).Select(y => y.Key).FirstOrDefault();
